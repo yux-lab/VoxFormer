@@ -28,6 +28,7 @@ _query_tag_ = 'query_iou5203_pre7712_rec6153'
 
 model = dict(
    type='VoxFormer',
+   #modified by Yux
    pretrained=dict(img='ckpts/resnet50-19c8e357.pth'),
    img_backbone=dict(
        type='ResNet',
@@ -144,6 +145,7 @@ file_client_args = dict(backend='disk')
 
 data = dict(
    samples_per_gpu=1,
+   # modified by Yux
    workers_per_gpu=4,
    train=dict(
        type=dataset_type,
@@ -171,6 +173,7 @@ data = dict(
        query_tag = _query_tag_),
    test=dict(
        type=dataset_type,
+       # modified by YUx
        split = "val",
        test_mode=True,
        data_root=data_root,

@@ -126,7 +126,6 @@ def custom_multi_gpu_test(model, data_loader, tmpdir=None, gpu_collect=False):
     return results
     # return {'bbox_results': bbox_results, 'mask_results': mask_results}
 
-
 def collect_results_cpu(result_part, size, tmpdir=None):
     rank, world_size = get_dist_info()
     # create a tmp dir if it is not specified

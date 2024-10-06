@@ -39,7 +39,8 @@ class VoxFormerHead(nn.Module):
         CE_ssc_loss=True,
         geo_scal_loss=True,
         sem_scal_loss=True,
-        save_flag = False,
+        #modified by Yux
+        save_flag = True,
         **kwargs
     ):
         super().__init__()
@@ -247,7 +248,7 @@ class VoxFormerHead(nn.Module):
         y_pred[y_pred==9] = 40
 
         # save predictions
-        pred_folder = os.path.join("./voxformer", "sequences", img_metas[0]['sequence_id'], "predictions") 
+        pred_folder = os.path.join("./pred/voxformer-T-3D", "sequences", img_metas[0]['sequence_id'], "predictions") 
         if not os.path.exists(pred_folder):
             os.makedirs(pred_folder)
         y_pred_bin = y_pred.astype(np.uint16)
